@@ -33,10 +33,10 @@
   </div>
 </template>
 
-
 <script>
 export default {
   layout: "auth",
+  middleware: "guest",
   methods: {
     SigninWithGoogle() {
       this.$auth.loginWith("google");
