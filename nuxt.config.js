@@ -28,7 +28,14 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-  ],
+  
+    '~/plugins/html5-qrcode.js'
+  
+   ],
+
+  // ... rest of your nuxt.config.js
+
+
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -44,35 +51,32 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/auth-next'
   ],
-
   auth: {
     redirect: {
-      login: 'auth/singin', // redirect user when not connected
-      logout: "/auth/signin", // redirect user when logout
-      callback: "/auth/callback",//callback URL afterlogin
-      home: "/", // after 
+      login: "/auth/signin",
+      logout: "/auth/signin",
+      callback: "/auth/callback",
+      home: "/",
+
     },
-    autoFetchUser: false,
+    authoFetchUser: false,
     strategies: {
       google: {
-        clientId: '877023324891-c1oamabpm3nh4j14vs47ss9o5g3a7nd4.apps.googleusercontent.com',
+        clientId: '110833979456-u10jork3jmo0lo38qg0hlkomrg330ep6.apps.googleusercontent.com',
         scheme: "oauth2",
         endpoints: {
-          authorization: "http://accounts.google.com/o/oauth2/auth",
-          userInfo: "https//:www.googleapis.com/oauth2/v3/userinfo",
+          auhtorization: "http://accounts.google.com/o/oauth2/auth",
+          userInfo: "https://www.googleapis.com/oauth2/v3/userinfo",
         },
         token: {
-          property: 'access_token',
-          type: 'Bearer',
+          property: "access_token",
+          type: "Bearer",
           maxAge: 1800,
         },
-        responseType: 'token id_token',
-        scope: ["openid", "profile","email"],
-          redirectUri: 'http://localhost:3000/auth/callback',
-          codeChallengeMethod:"",
-
-
-
+        responseType: "token id_token ",
+        scope: ["openid","profile" , "email"],
+        redirectUri: "http://localhost:3000/auth/callback",
+        codeChallengeMethod: "",
       },
     }
   },
